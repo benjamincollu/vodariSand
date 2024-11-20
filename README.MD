@@ -1,0 +1,1 @@
+Toto je github repozitár pre náš projekt na tému Sand z predmetu úvod do štúdia.
