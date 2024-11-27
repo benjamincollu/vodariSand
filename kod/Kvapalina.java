@@ -26,6 +26,7 @@ public class Kvapalina {
         }
     }
     
+<<<<<<< HEAD
     public String zistiFarbu() {
         if (this.material.equals("voda")) {
             return "#00a1d1";
@@ -45,6 +46,9 @@ public class Kvapalina {
         for (int i = 0; i < density; i++) {
             this.castice.add(new Zrnko(r.nextInt(400), r.nextInt(300), zistiFarbu(), zistiHustotu()));
         }
+=======
+    public void dumpSand(int density) {
+>>>>>>> 6bcf68e (dumbSand na dumpSand)
         
     }
     
