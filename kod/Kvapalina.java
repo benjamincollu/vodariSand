@@ -20,7 +20,7 @@ public class Kvapalina {
         
     }
     
-    public void dumbSand(int density) {
+    public void dumpSand(int density) {
         
     }
     
