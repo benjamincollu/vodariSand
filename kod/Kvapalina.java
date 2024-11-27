@@ -45,6 +45,7 @@ public class Kvapalina {
         for (int i = 0; i < density; i++) {
             this.castice.add(new Zrnko(r.nextInt(400), r.nextInt(300), zistiFarbu(), zistiHustotu()));
         }
+        
     }
     
     public void tik() {
