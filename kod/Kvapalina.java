@@ -27,6 +27,7 @@ public class Kvapalina {
     }
     
 <<<<<<< HEAD
+<<<<<<< HEAD
     public String zistiFarbu() {
         if (this.material.equals("voda")) {
             return "#00a1d1";
@@ -49,6 +50,9 @@ public class Kvapalina {
 =======
     public void dumpSand(int density) {
 >>>>>>> 6bcf68e (dumbSand na dumpSand)
+=======
+    public void dumpSand(int density) {
+>>>>>>> f290199 (dumbSand na dumpSand)
         
     }
     
