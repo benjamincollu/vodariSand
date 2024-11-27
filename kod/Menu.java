@@ -1,4 +1,5 @@
-
+import fri.shapesge.Obdlznik;
+import fri.shapesge.Obrazok;
 /**
  * Write a description of class Menu here.
  * 
@@ -6,10 +7,11 @@
  * @version (a version number or a date)
  */
 public class Menu {
-    /**
-     * Constructor for objects of class Menu
-     */
+    private Obdlznik piesok;
+    private Obdlznik voda;
+    private Obrazok pozadie;
+    
     public Menu() {
-        // initialise instance variables
+        
     }
 }
