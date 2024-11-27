@@ -1,3 +1,4 @@
+import 
 /**
  * Write a description of class Tryska here.
  * 
@@ -5,9 +6,8 @@
  * @version (a version number or a date)
  */
 public class Tryska {
-    /**
-     * Constructor for objects of class Tryska
-     */
+    private Stvorec stvorec;
+    
     public Tryska() {
         // initialise instance variables
     }
