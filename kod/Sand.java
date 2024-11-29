@@ -13,7 +13,7 @@ public class Sand {
     private ManazerGravitacie manazerGravitacie;
     private Mapa mapa;
     private Manazer manazer;
-    //private Menu Menu;
+    private Menu Menu;
     public Sand() {
         // initialise instance variables
     }
