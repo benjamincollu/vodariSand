@@ -23,6 +23,11 @@ public class Sand {
         this.menu = new Menu();
     }
     
+    public void spustHru() {
+        this.manazerGravitacie = new ManazerGravitacie();
+        this.mapa = new Mapa();
+    }
+    
     public void vypniHru() {
         System.exit(0);
     }

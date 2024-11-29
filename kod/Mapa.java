@@ -14,7 +14,6 @@ public class Mapa {
     private Tryska tryska1;                                                  
     private Tryska tryska2;
     private Tryska tryska3;
-   
             
     public Mapa() {
         // initialise instance variables
