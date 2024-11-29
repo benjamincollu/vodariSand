@@ -13,8 +13,17 @@ public class Sand {
     private ManazerGravitacie manazerGravitacie;
     private Mapa mapa;
     private Manazer manazer;
-    private Menu Menu;
+    private Menu menu;
     public Sand() {
         // initialise instance variables
+        this.spustMenu();
+    }
+    
+    public void spustMenu() {
+        this.menu = new Menu();
+    }
+    
+    public void vypniHru() {
+        System.exit(0);
     }
 }
