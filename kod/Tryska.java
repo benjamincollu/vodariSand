@@ -1,4 +1,4 @@
-import 
+import fri.shapesge.Stvorec;
 /**
  * Write a description of class Tryska here.
  * 
