@@ -7,8 +7,16 @@ import fri.shapesge.Stvorec;
  */
 public class Tryska {
     private Stvorec stvorec;
+    private int polohaX;
+    private int polohaY;
+    private String farba;
     
-    public Tryska() {
-        // initialise instance variables
+    public Tryska(int polohaX, int polohaY, String farba) {
+        this.polohaX = polohaX;
+        this.polohaY = polohaY;
+        this.farba = farba;
+        this.stvorec = new Stvorec();
+        this.stvorec.zmenPolohu(polohaX, polohaY);
+        this.stvorec.zmenFarbu(farba);
     }
 }
