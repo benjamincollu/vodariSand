@@ -3,9 +3,9 @@ public class Zrnko {
     private Obdlznik zrnko; 
     private int polohaX;
     private int polohaY;
-    private double hustota;
+    private int hustota;
     private String farba;
-    public Zrnko(int polohaX, int polohaY, String farba, double hustota) {
+    public Zrnko(int polohaX, int polohaY, String farba, int hustota) {
         this.polohaX = polohaX; 
         this.polohaY = polohaY;
         this.farba = farba;
@@ -17,20 +17,20 @@ public class Zrnko {
         this.zrnko.zobraz();
     }
     public void posunDole() {
-        this.zrnko.posunZvisle(5);
-        this.polohaY += 5;
+        this.zrnko.posunZvisle(this.hustota);
+        this.polohaY += this.hustota;
     }
     public void posunDoleDoprava() {
-        this.zrnko.posunZvisle(5);
-        this.zrnko.posunVodorovne(5); 
-        this.polohaY += 5;
-        this.polohaX += 5;
+        this.zrnko.posunZvisle(this.hustota);
+        this.zrnko.posunVodorovne(this.hustota); 
+        this.polohaY += this.hustota;
+        this.polohaX += this.hustota;
     }
     public void posunDoleDolava() {
-        this.zrnko.posunZvisle(5);
-        this.zrnko.posunVodorovne(-5); 
-        this.polohaY += 5;
-        this.polohaX -= 5;
+        this.zrnko.posunZvisle(this.hustota);
+        this.zrnko.posunVodorovne(this.hustota); 
+        this.polohaY += this.hustota;
+        this.polohaX -= this.hustota;
     }
     public int getPolohaX() {
         return this.polohaX;
