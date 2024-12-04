@@ -14,4 +14,8 @@ public class Menu {
     public Menu() {
         
     }
+    
+    public void vyberKvaoalinu(String kvapalina){
+    
+    }
 }
