@@ -21,6 +21,17 @@ public class Mapa {
     
     public ArrayList<Tryska> getTrysky() {
         return null;
+       
     }
+    
+    public int getMaxX() { 
+        // sbge.ini 
+        return 400;
+    }
+     public int getMaxY() { 
+        // sbge.ini 
+        return 300;
+    }
+    
     
 }
