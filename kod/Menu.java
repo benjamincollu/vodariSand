@@ -17,22 +17,22 @@ public class Menu {
     
     public Menu() {
         this.vybranaKvapalina = 0;
-        this.pozadie = new Obrazok("img/pozadie.png");
-        this.pozadie.zmenPolohu(0, 0);
+        this.pozadie = new Obrazok("img/pozadie.png", 0, 0);
+        this.pozadie.zobraz();
 
         this.voda = new Obdlznik();
         this.voda.zmenPolohu(100, 100);
         this.voda.zmenStrany(50, 20);
         this.voda.zmenFarbu("blue");
         this.hitboxVoda = new Rectangle2D(100, 10, 50, 20);
+        this.voda.zobraz();
         
         this.piesok = new Obdlznik();
         this.piesok.zmenPolohu(300, 100);
         this.piesok.zmenStrany(50, 20);
         this.piesok.zmenFarbu("yellow");
         this.hitboxVoda = new Rectangle2D(300, 100, 50, 20);
-        
-        this.pozadie.zobraz();
+        this.piesok.zobraz();
     }
     
     public int getVybranaKvapalina() {
