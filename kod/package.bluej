@@ -17,6 +17,7 @@ dependency5.type=UsesDependency
 dependency6.from=Sand
 dependency6.to=Menu
 dependency6.type=UsesDependency
+<<<<<<< HEAD
 editor.fx.0.height=737
 editor.fx.0.width=814
 editor.fx.0.x=713
@@ -31,6 +32,8 @@ package.editor.x=0
 package.editor.y=0
 package.frame.height=1033
 package.frame.width=1721
+=======
+>>>>>>> 255dd996361ec158b85032ff0e7fb08a0d95ebd1
 package.numDependencies=6
 package.numTargets=7
 package.showExtends=true
