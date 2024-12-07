@@ -16,15 +16,33 @@ public class Sand {
     private Menu menu;
     public Sand() {
         // initialise instance variables
-        this.spustMenu();
-    }
-    
-    public void spustMenu() {
+        this.manazer = new Manazer();
+        this.manazer.spravujObjekt(this);
         this.menu = new Menu();
+        this.manazer.spravujObjekt(this.menu);
     }
     
-    public void spustHru() {
+    public void tik() {
+        if(this.menu != null) {
+            switch(this.menu.getVybranaKvapalina()) {
+                case 0:
+                    break;
+                case 1:
+                    this.spustHru("piesok");
+                    break;
+                case 2:
+                    this.spustHru("voda");
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    
+    public void spustHru(String kvapalina) {
+        this.menu = null;
         this.manazerGravitacie = new ManazerGravitacie();
+        this.kvapalina = new Kvapalina("voda");
         this.mapa = new Mapa();
     }
     
