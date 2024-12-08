@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import fri.shapesge.Obdlznik;
 import java.util.Random;
 /**
  * Write a description of class Kvapalina here.
@@ -8,49 +7,24 @@ import java.util.Random;
  * @version (a version number or a date)
  */
 public class Kvapalina {
-    private ArrayList<Zrnko> castice;
-    private String material;
+    private ArrayList<Zrnko> zrnka;
+    private Material material;
+    private Random rand;
+    private int[] polohyXTrysiek;
+    private int polohaYPodlahy;
     private int sanca;
-    
-    public Kvapalina(String material) {
+    /**
+     * Constructor for objects of class Kvapalina
+     */
+    public Kvapalina(Material material, int[] polohyXTrysiek, int polohaYPodlahy) {
+        // initialise instance variables
         this.material = material;
-        this.sanca = 50;
-        this.castice = new ArrayList<Zrnko>();
-    }
-    
-    public void vytvorZrnko(int polohaX) {
-        if (this.material.equals("voda")){
-            this.castice.add(new Zrnko(polohaX, 0, "#00a1d1", 2));
-        } else if (this.material.equals("piesok")) {
-            this.castice.add(new Zrnko(polohaX, 0, "#c06805", 1));
-        }
-    }
-    
-    public String zistiFarbu() {
-        if (this.material.equals("voda")) {
-            return "#00a1d1";
-        }
-        return "#c06805";
-    }
-    
-    public int zistiHustotu() {
-        if (this.material.equals("voda")) {
-            return 2;
-        }
-        return 1;
-    }
-    
-    public void vysypPiesok(int density) {
-        Random r = new Random();
-        for (int i = 0; i < density; i++) {
-            this.castice.add(new Zrnko(r.nextInt(400), r.nextInt(300), zistiFarbu(), zistiHustotu()));
-        }
-    }
-    
-    public void tik() {
-        for (int i = 0; i < this.castice.size(); i++) {
-            this.castice.get(i).tik();
-        }
+        this.polohyXTrysiek = polohyXTrysiek;
+        this.rand = new Random();
+        this.polohaYPodlahy = polohaYPodlahy;
+        this.zrnka = new ArrayList<Zrnko>();
+        
+        this.sanca = 5;
     }
     
     public int getSanca() {
@@ -59,5 +33,38 @@ public class Kvapalina {
     
     public void setSanca(int sanca) {
         this.sanca = sanca;
+    }
+    
+    public void vytvorZrnko() {
+        int cisloTrysky = this.rand.nextInt(3);
+        this.zrnka.add(new Zrnko(this.polohyXTrysiek[cisloTrysky], 60, this.material, this.polohaYPodlahy));
+    }
+    
+    private boolean jeMiestoZabrane(int polohaX, int polohaY) {
+        for (Zrnko zrnko : this.zrnka) {
+            if (zrnko.getPolohaX() == polohaX && zrnko.getPolohaY() == polohaY) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public void tik() {
+        for (Zrnko zrnko : this.zrnka) {
+            // ak už spadlo, nepohne sa
+            if (zrnko.getSpadlo()) {
+                continue;
+            }
+            // ak je zabrane miesto pod ním
+            if (jeMiestoZabrane(zrnko.getPolohaX(), zrnko.getPolohaY() + 1)) {
+                zrnko.narazilo(jeMiestoZabrane(zrnko.getPolohaX() - 1, zrnko.getPolohaY() + 1), jeMiestoZabrane(zrnko.getPolohaX() + 1, zrnko.getPolohaY() + 1));
+            } else {
+                zrnko.tik();
+            }
+        }
+
+        if (this.rand.nextInt(10) < this.sanca) {
+            this.vytvorZrnko();
+        }
     }
 }
