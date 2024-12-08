@@ -1,4 +1,5 @@
 import fri.shapesge.Manazer;
+import fri.shapesge.Obdlznik;
 /**
  * Write a description of class Sand here.
  * 
@@ -41,7 +42,11 @@ public class Sand {
     
     public void spustHru(String kvapalina) {
         this.menu = null;
-        this.manazerGravitacie = new ManazerGravitacie();
+        Obdlznik obdlznik = new Obdlznik(0, 0);
+        obdlznik.zmenFarbu("white");
+        obdlznik.zmenStrany(500, 500);
+        obdlznik.zobraz();
+        //this.manazerGravitacie = new ManazerGravitacie();
         this.kvapalina = new Kvapalina("voda");
         this.mapa = new Mapa();
     }
