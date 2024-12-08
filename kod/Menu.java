@@ -24,14 +24,14 @@ public class Menu {
         this.voda.zmenPolohu(100, 100);
         this.voda.zmenStrany(50, 20);
         this.voda.zmenFarbu("blue");
-        this.hitboxVoda = new Rectangle2D(100, 10, 50, 20);
+        this.hitboxVoda = new Rectangle2D(100, 100, 50, 20);
         this.voda.zobraz();
         
         this.piesok = new Obdlznik();
         this.piesok.zmenPolohu(300, 100);
         this.piesok.zmenStrany(50, 20);
         this.piesok.zmenFarbu("yellow");
-        this.hitboxVoda = new Rectangle2D(300, 100, 50, 20);
+        this.hitboxPiesok = new Rectangle2D(300, 100, 50, 20);
         this.piesok.zobraz();
     }
     
@@ -40,11 +40,10 @@ public class Menu {
     }
     
     public void stlacenieTlacidla(int x, int y) {
-        Rectangle2D mys = new Rectangle2D(x, y, 1, 1);
-        if(mys.intersects(this.hitboxPiesok)) {
+        if(this.hitboxVoda.contains(x,y)) {
             this.vybranaKvapalina = 1;
         }
-        if(mys.intersects(this.hitboxVoda)) {
+        if(this.hitboxPiesok.contains(x,y)) {
             this.vybranaKvapalina = 2;
         }
     }
