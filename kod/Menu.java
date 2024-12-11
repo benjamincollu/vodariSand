@@ -33,7 +33,11 @@ public class Menu {
         this.nazovHry.zmenFont("Arial", StylFontu.BOLD, 100);
         this.nazovHry.zobraz();
         
+<<<<<<< HEAD
         this.vyberteText = new BlokTextu("Vyberte kvapalinu", 400 - 110, 225);
+=======
+        this.vyberteText = new BlokTextu("Vyberte materiál", 400 - 110, 225);
+>>>>>>> Menu
         this.vyberteText.zmenFont("Arial", StylFontu.BOLD, 25);
         this.vyberteText.zobraz();
         
@@ -42,6 +46,7 @@ public class Menu {
         this.creditsText.zobraz();
         
         this.piesok = new Obdlznik();
+<<<<<<< HEAD
         this.piesok.zmenPolohu(400 - 25 - 200, 200);
         this.piesok.zmenStrany(50, 20);
         this.piesok.zmenFarbu("yellow");
@@ -53,6 +58,19 @@ public class Menu {
         this.voda.zmenStrany(50, 20);
         this.voda.zmenFarbu("blue");
         this.hitboxVoda = new Rectangle2D(400 + 25 + 100, 200, 50, 20);
+=======
+        this.piesok.zmenPolohu(175, 275);
+        this.piesok.zmenStrany(150, 50);
+        this.piesok.zmenFarbu("yellow");
+        this.hitboxPiesok = new Rectangle2D(175, 275, 150, 50);
+        this.piesok.zobraz();
+        
+        this.voda = new Obdlznik();
+        this.voda.zmenPolohu(475, 275);
+        this.voda.zmenStrany(150, 50);
+        this.voda.zmenFarbu("blue");
+        this.hitboxVoda = new Rectangle2D(475, 275, 150, 50);
+>>>>>>> Menu
         this.voda.zobraz();
     }
     
@@ -69,6 +87,8 @@ public class Menu {
         this.piesok.skry();
         this.hitboxPiesok = null;
         this.piesok = null;
+        this.creditsText.skry();
+        this.creditsText = null;
     }
     
     public int getVybranaKvapalina() {
