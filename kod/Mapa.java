@@ -1,5 +1,6 @@
 import fri.shapesge.Obdlznik;
 import java.util.ArrayList;
+import fri.shapesge.Obrazok;
 /**
  * Write a description of class Mapa here.
  * 
@@ -13,8 +14,11 @@ public class Mapa {
     private static final String FARBA_PODLAHY = "#000000";
     
     // sbge.ini
-    private static final int MAX_X = 400;
-    private static final int MAX_Y = 300;
+    private static final int MAX_X = 800;
+    private static final int MAX_X_PODLAHA = 500;
+    private static final int MAX_Y = 600;
+    
+    private static final int VELKOST_PODLAHY = 75;
     
     private static final int POLOHA_Y_TRYSIEK = 50;
     /**
@@ -24,14 +28,14 @@ public class Mapa {
         // initialise instance variables
         this.trysky = new ArrayList<Tryska>();
         
-        this.podlaha = new Obdlznik(0, MAX_Y-20);
+        this.podlaha = new Obdlznik(0, MAX_Y-VELKOST_PODLAHY);
         this.podlaha.zmenFarbu(FARBA_PODLAHY);
-        this.podlaha.zmenStrany(MAX_X, 20);
+        this.podlaha.zmenStrany(MAX_X_PODLAHA, VELKOST_PODLAHY);
         this.podlaha.zobraz();
         
-        this.trysky.add(new Tryska(90, POLOHA_Y_TRYSIEK));
-        this.trysky.add(new Tryska(190, POLOHA_Y_TRYSIEK));
-        this.trysky.add(new Tryska(290, POLOHA_Y_TRYSIEK));
+        this.trysky.add(new Tryska(100, POLOHA_Y_TRYSIEK));
+        this.trysky.add(new Tryska(225, POLOHA_Y_TRYSIEK));
+        this.trysky.add(new Tryska(350, POLOHA_Y_TRYSIEK));
     }
     
     public int[] getPolohyXTrysiek() {
@@ -42,8 +46,12 @@ public class Mapa {
         return polohyX;
     }
     
+    public int getPolohaYTrysiek() {
+        return this.trysky.get(0).getPolohaY();
+    }
+    
     public int getPolohaYPodlahy() {
-        return MAX_Y-20;
+        return MAX_Y-VELKOST_PODLAHY;
     }
     
     public int getMaxX() { 
