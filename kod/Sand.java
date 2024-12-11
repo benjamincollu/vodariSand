@@ -1,4 +1,5 @@
 import fri.shapesge.Manazer;
+import javafx.geometry.Rectangle2D;
 /**
  * Write a description of class Sand here.
  * 
@@ -10,6 +11,7 @@ public class Sand {
     private Mapa mapa;
     private Kvapalina kvapalina;
     private Menu menu;
+    private GUI gui;
     /**
      * Constructor for objects of class Sand
      */
@@ -38,12 +40,22 @@ public class Sand {
         }
     }
     
+    public void stlacenieTlacidla(int x, int y) {
+        if (this.gui != null) {
+            if(new Rectangle2D(x, y, 2, 2).intersects(this.gui.getVysypHitbox())) {
+                this.kvapalina.vysypPiesok();
+            }
+        }
+    }
+
     public void spustHru(Material material) {
         this.menu.skry();
         this.menu = null;
         this.mapa = new Mapa();
-        this.kvapalina = new Kvapalina(material, this.mapa.getPolohyXTrysiek(), this.mapa.getPolohaYPodlahy());
+        this.kvapalina = new Kvapalina(material, this.mapa.getPolohyXTrysiek(), this.mapa.getPolohaYTrysiek(), this.mapa.getPolohaYPodlahy());
+        this.gui = new GUI(material);
         this.manazer.spravujObjekt(this.mapa);
         this.manazer.spravujObjekt(this.kvapalina);
+        this.manazer.spravujObjekt(this.gui);
     }
 }
