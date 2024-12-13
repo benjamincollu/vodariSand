@@ -60,21 +60,12 @@ public class Mapa {
         return polohyX;
     }
     
-<<<<<<< HEAD
     /**
      * Vráti polohu všetkých trysiek na osi Y.
      * @return celé číslo
      */
     public int getPolohaYTrysiek() {
         return this.trysky.get(0).getPolohaY();
-=======
-    public int getPolohaYTrysiek() {
-        return this.trysky.get(0).getPolohaY();
-    }
-    
-    public int getPolohaYPodlahy() {
-        return MAX_Y-VELKOST_PODLAHY;
->>>>>>> 0de6a14cb6007cef241173780c793640861cecfb
     }
     
     /**
