@@ -1,5 +1,5 @@
 import fri.shapesge.Manazer;
-import fri.shapesge.Obdlznik;
+import javafx.geometry.Rectangle2D;
 /**
  * Write a description of class Sand here.
  * 
@@ -7,19 +7,19 @@ import fri.shapesge.Obdlznik;
  * @version (a version number or a date)
  */
 public class Sand {
+    private Manazer manazer;
+    private Mapa mapa;
+    private Kvapalina kvapalina;
+    private Menu menu;
+    private GUI gui;
     /**
      * Constructor for objects of class Sand
      */
-    private Kvapalina kvapalina;
-    private ManazerGravitacie manazerGravitacie;
-    private Mapa mapa;
-    private Manazer manazer;
-    private Menu menu;
     public Sand() {
         // initialise instance variables
         this.manazer = new Manazer();
-        this.manazer.spravujObjekt(this);
         this.menu = new Menu();
+        this.manazer.spravujObjekt(this);
         this.manazer.spravujObjekt(this.menu);
     }
     
@@ -29,10 +29,10 @@ public class Sand {
                 case 0:
                     break;
                 case 1:
-                    this.spustHru("piesok");
+                    this.spustHru(Material.PIESOK);
                     break;
                 case 2:
-                    this.spustHru("voda");
+                    this.spustHru(Material.VODA);
                     break;
                 default:
                     break;
@@ -40,18 +40,22 @@ public class Sand {
         }
     }
     
-    public void spustHru(String kvapalina) {
-        this.menu = null;
-        Obdlznik obdlznik = new Obdlznik(0, 0);
-        obdlznik.zmenFarbu("white");
-        obdlznik.zmenStrany(500, 500);
-        obdlznik.zobraz();
-        //this.manazerGravitacie = new ManazerGravitacie();
-        this.kvapalina = new Kvapalina("voda");
-        this.mapa = new Mapa();
+    public void stlacenieTlacidla(int x, int y) {
+        if (this.gui != null) {
+            if(new Rectangle2D(x, y, 2, 2).intersects(this.gui.getVysypHitbox())) {
+                this.kvapalina.vysypPiesok();
+            }
+        }
     }
-    
-    public void vypniHru() {
-        System.exit(0);
+
+    public void spustHru(Material material) {
+        this.menu.skry();
+        this.menu = null;
+        this.mapa = new Mapa();
+        this.kvapalina = new Kvapalina(material, this.mapa.getPolohyXTrysiek(), this.mapa.getPolohaYTrysiek(), this.mapa.getPolohaYPodlahy());
+        this.gui = new GUI(material);
+        this.manazer.spravujObjekt(this.mapa);
+        this.manazer.spravujObjekt(this.kvapalina);
+        this.manazer.spravujObjekt(this.gui);
     }
 }

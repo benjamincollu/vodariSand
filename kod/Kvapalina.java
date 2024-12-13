@@ -11,15 +11,17 @@ public class Kvapalina {
     private Material material;
     private Random rand;
     private int[] polohyXTrysiek;
+    private int polohaYTrysiek;
     private int polohaYPodlahy;
     private int sanca;
     /**
      * Constructor for objects of class Kvapalina
      */
-    public Kvapalina(Material material, int[] polohyXTrysiek, int polohaYPodlahy) {
+    public Kvapalina(Material material, int[] polohyXTrysiek, int polohaYTrysiek, int polohaYPodlahy) {
         // initialise instance variables
         this.material = material;
         this.polohyXTrysiek = polohyXTrysiek;
+        this.polohaYTrysiek = polohaYTrysiek;
         this.rand = new Random();
         this.polohaYPodlahy = polohaYPodlahy;
         this.zrnka = new ArrayList<Zrnko>();
@@ -37,7 +39,14 @@ public class Kvapalina {
     
     public void vytvorZrnko() {
         int cisloTrysky = this.rand.nextInt(3);
-        this.zrnka.add(new Zrnko(this.polohyXTrysiek[cisloTrysky], 60, this.material, this.polohaYPodlahy));
+        this.zrnka.add(new Zrnko(this.polohyXTrysiek[cisloTrysky], this.polohaYTrysiek, this.material, this.polohaYPodlahy));
+    }
+    
+    public void vysypPiesok() {
+        for (int i = 0; i < 125; i++) {
+            int cisloTrysky = this.rand.nextInt(3);
+            this.zrnka.add(new Zrnko(this.polohyXTrysiek[cisloTrysky], this.polohaYTrysiek + this.rand.nextInt(125) + 300, this.material, this.polohaYPodlahy));
+        }
     }
     
     private boolean jeMiestoZabrane(int polohaX, int polohaY) {

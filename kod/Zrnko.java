@@ -18,6 +18,7 @@ public class Zrnko {
     private Stvorec stvorec;
     private Material material;
     private Random rand;
+    private int pocitadloHustoty;
     public Zrnko(int polohaX, int polohaY, Material material, int polohaYPodlahy) {
         // initialise instance variables
         this.polohaX = polohaX;
@@ -70,11 +71,15 @@ public class Zrnko {
     }
     
     public void tik() {
-        if(this.polohaY < this.polohaYPodlahy) {
-            this.stvorec.posunZvisle(1);
-            this.polohaY += 1;
-        } else {
-            this.spadlo = true;
+        this.pocitadloHustoty++;
+        if (this.pocitadloHustoty >= this.material.getHustota()) {
+            if (this.polohaY < this.polohaYPodlahy) {
+                this.stvorec.posunZvisle(1);
+                this.polohaY += 1;
+            } else {
+                this.spadlo = true;
+            }
+            this.pocitadloHustoty = 0;
         }
     }
 }
