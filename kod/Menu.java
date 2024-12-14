@@ -4,10 +4,10 @@ import fri.shapesge.BlokTextu;
 import javafx.geometry.Rectangle2D;
 import fri.shapesge.StylFontu;
 /**
- * Write a description of class Menu here.
+ * Spravuje menu
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Pavlo Slobodian
+ * @version 13.12.2024
  */
 public class Menu {
     private Obrazok pozadie;
@@ -20,10 +20,9 @@ public class Menu {
     private BlokTextu vyberteText;
     private BlokTextu creditsText;
     /**
-     * Constructor for objects of class Menu
+     * Inicializuje grafické rozhranie a tlačidlá
      */
     public Menu() {
-        // initialise instance variables
         this.vybranaKvapalina = 0;
         
         this.pozadie = new Obrazok("img/pozadie.png", 0, 0);
@@ -56,6 +55,9 @@ public class Menu {
         this.voda.zobraz();
     }
     
+    /**
+     * Skryje menu a vynuluje jeho prvky pre uvoľnenie pamäte
+     */
     public void skry() {
         this.pozadie.skry();
         this.pozadie = null;
@@ -73,10 +75,19 @@ public class Menu {
         this.creditsText = null;
     }
     
+    /**
+     * Vráti vybranú kvapalinu
+     * @param int celé číslo od 1-2
+     */
     public int getVybranaKvapalina() {
         return this.vybranaKvapalina;
     }
     
+    /**
+     * Metóda spúšťaná stlačením ľavého tlačidla myši, po stlačení tlačidla v menu sa vyberie kvapalina
+     * @param int x súradnica kurzora na osi X
+     * @param int y súradnica kurzora na osi Y
+     */
     public void stlacenieTlacidla(int x, int y) {
         if(this.vybranaKvapalina == 0) {
             if (this.hitboxPiesok.contains(x,y)) {
