@@ -10,8 +10,8 @@ public class Tryska {
     private Stvorec stvorec;
     private int polohaX;
     private int polohaY;
-    private static final String FARBA = "#be67e6";
-    private static final int VELKOST_TRYSKY = 10;
+    private static final String FARBA = "#8a5d04";
+    private static final int VELKOST_TRYSKY = 25;
     /**
      * Constructor for objects of class Tryska
      */
@@ -29,7 +29,7 @@ public class Tryska {
     }
     
     public int getPolohaY() {
-        return this.polohaY;
+        return this.polohaY + VELKOST_TRYSKY;
     }
     
     public int getVelkostTrysky() {
