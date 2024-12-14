@@ -2,10 +2,10 @@ import fri.shapesge.Obdlznik;
 import java.util.ArrayList;
 import fri.shapesge.Obrazok;
 /**
- * Write a description of class Mapa here.
+ * Vytvára grafickú aj fyzikálnu vizualizáciu mapy
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Martin Kortiš
+ * @version 13.12.2024
  */
 public class Mapa {
     private Obdlznik podlaha;
@@ -22,7 +22,7 @@ public class Mapa {
     
     private static final int POLOHA_Y_TRYSIEK = 50;
     /**
-     * Constructor for objects of class Mapa
+     * Vytvorí podlahu a inicializuje trysky
      */
     public Mapa() {
         // initialise instance variables
@@ -38,6 +38,20 @@ public class Mapa {
         this.trysky.add(new Tryska(350, POLOHA_Y_TRYSIEK));
     }
     
+    /**
+     * Skryje všetky trysky a odstráni ich pre prečistenie pamäte
+     */
+    public void skry() {
+        for (int i = this.trysky.size() - 1; i >= 0; i--) {
+            this.trysky.get(i).skry();
+            this.trysky.remove(i);
+        }
+    }
+    
+    /**
+     * Vráti pole s polohami trysiek na osi X
+     * @return int[] pole celých čísel
+     */
     public int[] getPolohyXTrysiek() {
         int[] polohyX = new int[3];
         polohyX[0] = this.trysky.get(0).getPolohaX() + (int)(this.trysky.get(0).getVelkostTrysky() / 2);
@@ -46,18 +60,34 @@ public class Mapa {
         return polohyX;
     }
     
+    /**
+     * Vráti polohu všetkých trysiek na osi Y.
+     * @return celé číslo
+     */
     public int getPolohaYTrysiek() {
         return this.trysky.get(0).getPolohaY();
     }
     
+    /**
+     * Vráti polohu podlahy na osi X
+     * @return celé číslo
+     */
     public int getPolohaYPodlahy() {
-        return MAX_Y-VELKOST_PODLAHY;
+        return MAX_Y-VELKOST_PODLAHY - 1;
     }
     
+    /**
+     * Vráti rozlíšenie obrazovky na osi X
+     * @return celé číslo
+     */
     public int getMaxX() { 
         return MAX_X;
     }
     
+    /**
+     * Vráti rozlíšenie obrazovky na osi Y
+     * @return celé číslo
+     */
     public int getMaxY() { 
         return MAX_Y;
     }
