@@ -1,6 +1,5 @@
 import fri.shapesge.Obdlznik;
 import java.util.ArrayList;
-import fri.shapesge.Obrazok;
 /**
  * Vytvára grafickú aj fyzikálnu vizualizáciu mapy
  * 
@@ -28,7 +27,7 @@ public class Mapa {
         // initialise instance variables
         this.trysky = new ArrayList<Tryska>();
         
-        this.podlaha = new Obdlznik(0, MAX_Y-VELKOST_PODLAHY);
+        this.podlaha = new Obdlznik(0, MAX_Y - VELKOST_PODLAHY);
         this.podlaha.zmenFarbu(FARBA_PODLAHY);
         this.podlaha.zmenStrany(MAX_X_PODLAHA, VELKOST_PODLAHY);
         this.podlaha.zobraz();
@@ -73,7 +72,7 @@ public class Mapa {
      * @return celé číslo
      */
     public int getPolohaYPodlahy() {
-        return MAX_Y-VELKOST_PODLAHY - 1;
+        return MAX_Y - VELKOST_PODLAHY - 1;
     }
     
     /**
