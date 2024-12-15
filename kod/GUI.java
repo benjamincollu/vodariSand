@@ -1,4 +1,3 @@
-import fri.shapesge.Obrazok;
 import fri.shapesge.BlokTextu;
 import fri.shapesge.StylFontu;
 import fri.shapesge.Obdlznik;
@@ -31,8 +30,8 @@ public class GUI {
      */
     public GUI(Material material) {
         // initialise instance variables
-        rychlost = 1;
-        sanca = 50;
+        this.rychlost = 1;
+        this.sanca = 50;
         
         this.meter = new Obdlznik(500, 0);
         this.meter.zmenFarbu("black");
@@ -50,7 +49,7 @@ public class GUI {
         this.materialHustota.zmenFont("Arial", StylFontu.BOLD, 20);
         this.materialHustota.zobraz();
         
-        this.rychlostText = new BlokTextu(String.format("rychlosť: %d", rychlost), 515, 75);
+        this.rychlostText = new BlokTextu(String.format("rychlosť: %d", this.rychlost), 515, 75);
         this.rychlostText.zmenFont("Arial", StylFontu.BOLD, 20);
         this.rychlostText.zobraz();
         
@@ -162,7 +161,7 @@ public class GUI {
     public void tik() {
         this.cas += 0.05;
         this.sekundy.zmenText(String.format("%d", (int)this.cas));
-        this.rychlostText.zmenText(String.format("rychlosť: %d", rychlost));
+        this.rychlostText.zmenText(String.format("rychlosť: %d", this.rychlost));
         this.sancaText.zmenText(String.format("šanca: %d%%", this.sanca));
     }
 }
