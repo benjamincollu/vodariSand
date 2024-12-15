@@ -1,7 +1,7 @@
 import fri.shapesge.Obdlznik;
 import fri.shapesge.Obrazok;
 import fri.shapesge.BlokTextu;
-import javafx.geometry.Rectangle2D;
+import java.awt.geom.Rectangle2D;
 import fri.shapesge.StylFontu;
 /**
  * Spravuje menu
@@ -44,14 +44,14 @@ public class Menu {
         this.piesok.zmenPolohu(175, 275);
         this.piesok.zmenStrany(150, 50);
         this.piesok.zmenFarbu("yellow");
-        this.hitboxPiesok = new Rectangle2D(175, 275, 150, 50);
+        this.hitboxPiesok = new Rectangle2D.Double(175, 275, 150, 50);
         this.piesok.zobraz();
         
         this.voda = new Obdlznik();
         this.voda.zmenPolohu(475, 275);
         this.voda.zmenStrany(150, 50);
         this.voda.zmenFarbu("blue");
-        this.hitboxVoda = new Rectangle2D(475, 275, 150, 50);
+        this.hitboxVoda = new Rectangle2D.Double(475, 275, 150, 50);
         this.voda.zobraz();
     }
     

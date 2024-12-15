@@ -1,5 +1,5 @@
 import fri.shapesge.Manazer;
-import javafx.geometry.Rectangle2D;
+import java.awt.geom.Rectangle2D;
 /**
  * Write a description of class Sand here.
  * 
@@ -42,7 +42,7 @@ public class Sand {
     
     public void stlacenieTlacidla(int x, int y) {
         if (this.gui != null) {
-            if(new Rectangle2D(x, y, 2, 2).intersects(this.gui.getVysypHitbox())) {
+            if(new Rectangle2D.Double(x, y, 2, 2).intersects(this.gui.getVysypHitbox())) {
                 this.kvapalina.vysypPiesok();
             }
         }

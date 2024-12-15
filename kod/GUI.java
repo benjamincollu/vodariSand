@@ -2,7 +2,7 @@ import fri.shapesge.Obrazok;
 import fri.shapesge.BlokTextu;
 import fri.shapesge.StylFontu;
 import fri.shapesge.Obdlznik;
-import javafx.geometry.Rectangle2D;
+import java.awt.geom.Rectangle2D;
 /**
  * Vykresľuje interaktívne grafické rozhranie
  * 
@@ -109,7 +109,7 @@ public class GUI {
      * @return Rectangle2D hranica
      */
     public Rectangle2D getVysypHitbox() {
-        return new Rectangle2D(550, 250, 200, 50);
+        return new Rectangle2D.Double(550, 250, 200, 50);
     }
     
     /**
@@ -117,7 +117,7 @@ public class GUI {
      * @return Rectangle2D hranica
      */
     public Rectangle2D getZmenRychlostHitbox() {
-        return new Rectangle2D(550, 350, 200, 50);
+        return new Rectangle2D.Double(550, 350, 200, 50);
     }
     
     /**
@@ -125,7 +125,7 @@ public class GUI {
      * @return Rectangle2D hranica
      */
     public Rectangle2D getSancaHitbox() {
-        return new Rectangle2D(550, 450, 200, 50);
+        return new Rectangle2D.Double(550, 450, 200, 50);
     }
     
     /**
