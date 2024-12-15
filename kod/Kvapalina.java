@@ -79,24 +79,24 @@ public class Kvapalina {
      * Zmení rýchlosť padania častíc prostredníctvom dialógového okna
      */
     public void zmenRychlost() {
-        int rychlost = 1;
+        int docasRychlost = 1;
         do {
-            rychlost = Integer.parseInt(this.dialog.showInputDialog("Zadajte rýchlosť padania: "));
-        } while (rychlost <= 0);
+            docasRychlost = Integer.parseInt(this.dialog.showInputDialog("Zadajte rýchlosť padania: "));
+        } while (docasRychlost <= 0);
         
-        this.rychlost = rychlost;
+        this.rychlost = docasRychlost;
     }
     
     /**
      * Zmení šancu objavenia častice prostredníctvom dialógového okna
      */
     public void zmenSancu() {
-        int sanca = 50;
+        int docasSanca = 50;
         do {
-            sanca = Integer.parseInt(this.dialog.showInputDialog("Zadajte šancu objavovania častíc: "));
-        } while (sanca <= 0 || sanca > 100);
+            docasSanca = Integer.parseInt(this.dialog.showInputDialog("Zadajte šancu objavovania častíc: "));
+        } while (docasSanca <= 0 || docasSanca > 100);
         
-        this.sanca = sanca;
+        this.sanca = docasSanca;
     }
     
     /**
@@ -133,15 +133,15 @@ public class Kvapalina {
      * Aplikuje gravitačnú silu na častice a vytvára nové
      */
     public void tik() {
-        for(int i = 0; i <= this.rychlost; i++) {
+        for (int i = 0; i <= this.rychlost; i++) {
             for (Zrnko zrnko : this.zrnka) {
                 // ak už spadlo, nepohne sa
                 if (zrnko.getSpadlo()) {
                     continue;
                 }
                 // ak je zabrane miesto pod ním
-                if (jeMiestoZabrane(zrnko.getPolohaX(), zrnko.getPolohaY() + 1)) {
-                    zrnko.narazilo(jeMiestoZabrane(zrnko.getPolohaX() - 1, zrnko.getPolohaY() + 1), jeMiestoZabrane(zrnko.getPolohaX() + 1, zrnko.getPolohaY() + 1));
+                if (this.jeMiestoZabrane(zrnko.getPolohaX(), zrnko.getPolohaY() + 1)) {
+                    zrnko.narazilo(this.jeMiestoZabrane(zrnko.getPolohaX() - 1, zrnko.getPolohaY() + 1), this.jeMiestoZabrane(zrnko.getPolohaX() + 1, zrnko.getPolohaY() + 1));
                 } else {
                     zrnko.tik();
                 }
