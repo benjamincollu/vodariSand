@@ -89,11 +89,11 @@ public class Menu {
      * @param int y súradnica kurzora na osi Y
      */
     public void stlacenieTlacidla(int x, int y) {
-        if(this.vybranaKvapalina == 0) {
-            if (this.hitboxPiesok.contains(x,y)) {
+        if (this.vybranaKvapalina == 0) {
+            if (this.hitboxPiesok.contains(x, y)) {
                 this.vybranaKvapalina = 1;
             }
-            if (this.hitboxVoda.contains(x,y)) {
+            if (this.hitboxVoda.contains(x, y)) {
                 this.vybranaKvapalina = 2;
             }
         }
