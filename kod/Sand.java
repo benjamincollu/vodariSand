@@ -30,8 +30,8 @@ public class Sand {
      * už vybraná kvapalina
      */
     public void tik() {
-        if(this.menu != null) {
-            switch(this.menu.getVybranaKvapalina()) {
+        if (this.menu != null) {
+            switch (this.menu.getVybranaKvapalina()) {
                 case 0:
                     break;
                 case 1:
@@ -58,13 +58,13 @@ public class Sand {
      */
     public void stlacenieTlacidla(int x, int y) {
         if (this.gui != null) {
-            if(new Rectangle2D.Double(x, y, 2, 2).intersects(this.gui.getVysypHitbox())) {
+            if (new Rectangle2D.Double(x, y, 2, 2).intersects(this.gui.getVysypHitbox())) {
                 this.kvapalina.vysypPiesok();
             }
-            if(new Rectangle2D.Double(x, y, 2, 2).intersects(this.gui.getZmenRychlostHitbox())) {
+            if (new Rectangle2D.Double(x, y, 2, 2).intersects(this.gui.getZmenRychlostHitbox())) {
                 this.kvapalina.zmenRychlost();
             }
-            if(new Rectangle2D.Double(x, y, 2, 2).intersects(this.gui.getSancaHitbox())) {
+            if (new Rectangle2D.Double(x, y, 2, 2).intersects(this.gui.getSancaHitbox())) {
                 this.kvapalina.zmenSancu();
             }
         }
