@@ -1,10 +1,10 @@
 import fri.shapesge.Manazer;
 import java.awt.geom.Rectangle2D;
 /**
- * Write a description of class Sand here.
+ * Trieda celku Sand
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Benjamín Collu
+ * @version 13.12.2024
  */
 public class Sand {
     private Manazer manazer;
@@ -13,7 +13,7 @@ public class Sand {
     private Menu menu;
     private GUI gui;
     /**
-     * Constructor for objects of class Sand
+     * Inicializuje manažéra a spustí menu
      */
     public Sand() {
         // initialise instance variables
@@ -21,8 +21,14 @@ public class Sand {
         this.menu = new Menu();
         this.manazer.spravujObjekt(this);
         this.manazer.spravujObjekt(this.menu);
+        this.gui = null;
+        this.kvapalina = null;
     }
     
+    /**
+     * Každú sekundu kontroluje, či bola prostredníctvom tlačidiel
+     * už vybraná kvapalina
+     */
     public void tik() {
         if(this.menu != null) {
             switch(this.menu.getVybranaKvapalina()) {
@@ -38,16 +44,36 @@ public class Sand {
                     break;
             }
         }
+        if (this.gui != null) {
+            this.gui.setSanca(this.kvapalina.getSanca());
+            this.gui.setRychlost(this.kvapalina.getRychlost());
+        }
     }
     
+    /**
+     * Metóda spúšťaná stlačením ľavého tlačidla myši, po stlačení tlačidla v menu sa buď vysype piesok,
+     * zmení rýchlosť padania alebo sa vráti do menu
+     * @param int x súradnica kurzora na osi X
+     * @param int y súradnica kurzora na osi Y
+     */
     public void stlacenieTlacidla(int x, int y) {
         if (this.gui != null) {
             if(new Rectangle2D.Double(x, y, 2, 2).intersects(this.gui.getVysypHitbox())) {
                 this.kvapalina.vysypPiesok();
             }
+            if(new Rectangle2D.Double(x, y, 2, 2).intersects(this.gui.getZmenRychlostHitbox())) {
+                this.kvapalina.zmenRychlost();
+            }
+            if(new Rectangle2D.Double(x, y, 2, 2).intersects(this.gui.getSancaHitbox())) {
+                this.kvapalina.zmenSancu();
+            }
         }
     }
 
+    /**
+     * Spustí hru s požadovaným materiálom, vybraným v menu
+     * @param Material material materiál kvapaliny, vybraný v menu
+     */
     public void spustHru(Material material) {
         this.menu.skry();
         this.menu = null;
